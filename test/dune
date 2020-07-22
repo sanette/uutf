@@ -1,0 +1,24 @@
+(executable
+ (name test)
+ (modules test)
+ (libraries uutf))
+
+(executable
+ (name utftrip)
+ (modules utftrip)
+ (libraries unix cmdliner uutf))
+
+(executable
+ (name examples)
+ (modules examples)
+ (libraries unix uutf))
+
+(alias
+ (name buildtest)
+ (deps test.exe))
+
+(alias
+ (name runtest)
+ (action
+  (run %{exe:test.exe})
+  ))

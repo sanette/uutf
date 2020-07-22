@@ -41,11 +41,14 @@ the source interfaces. It can be consulted [online][doc] or via
 Sample programs are located in the `test` directory of the
 distribution. They can be built and run with:
 
-    topkg build --test true && topkg test
+	dune exec test/test.exe --release
+	dune exec test/utftrip.exe --release
 
-The resulting binaries are in `_build/test` :
+(For the first one, you may also use `dune runtest --release`)
 
-- `test.native` tests the library, nothing should fail.
-- `utftrip.native`, among other things, reads unicode on `stdin` and rewrites 
+The resulting binaries are in `./_build/default/test/` :
+
+- `test.exe` tests the library, nothing should fail.
+- `utftrip.exe`, among other things, reads unicode on `stdin` and rewrites 
   it on `stdout`. Invoke with `--help` for more information. Depends
   on [Cmdliner](http://erratique.ch/software/cmdliner).

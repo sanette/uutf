@@ -346,7 +346,7 @@ let utf8_decode_test bmap =
   done
 
 let utf8_test () =                             (* Proof by exhaustiveness... *)
-  let umap, bmap = utf8_maps () in
+  let umap, _bmap = utf8_maps () in
   utf8_encode_test umap;
 (*  utf8_decode_test bmap; *)                        (* too long, commented. *)
   ()

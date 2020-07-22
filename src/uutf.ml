@@ -31,7 +31,7 @@ let u_rep = Uchar.unsafe_of_int 0xFFFD             (* replacement character. *)
 type encoding = [ `UTF_8 | `UTF_16 | `UTF_16BE | `UTF_16LE ]
 type decoder_encoding = [ encoding | `US_ASCII | `ISO_8859_1 ]
 
-let encoding_of_string s = match String.uppercase s with      (* IANA names. *)
+let encoding_of_string s = match String.uppercase s with(* IANA names. *)
 | "UTF-8" -> Some `UTF_8
 | "UTF-16" -> Some `UTF_16
 | "UTF-16LE" -> Some `UTF_16LE
@@ -361,7 +361,7 @@ let guessed_utf_8 d =                   (* start decoder after `UTF_8 guess. *)
       if d.t_len < 3
       then ret decode_utf_8 (malformed d.t 0 d.t_len) d.t_len d
       else (d.t_need <- 4; t_fill t_decode_utf_8 d)
-  | n -> assert false
+  | _n -> assert false
 
 let guessed_utf_16 d be v =     (* start decoder after `UTF_16{BE,LE} guess. *)
   let decode_utf_16, t_decode_utf_16, t_decode_utf_16_lo, j0, j1 =

@@ -1,2 +1,2 @@
-#directory "_build/src"
-#load "uutf.cmo"
+#directory "_build/default/src"
+#load "uutf.cma"

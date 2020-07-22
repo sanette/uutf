@@ -148,9 +148,9 @@ let r_uchar () =
   let n = Random.int uchar_count in
   Uchar.of_int (if n > 0xD7FF then n + u_surrogate_count else n)
 
-let r_text encoding encode_f rcount =
+let r_text _encoding encode_f rcount =
   encode_f (`Uchar Uutf.u_bom);
-  for i = 1 to rcount do encode_f (`Uchar (r_uchar ())) done;
+  for _i = 1 to rcount do encode_f (`Uchar (r_uchar ())) done;
   encode_f `End
 
 let encode_f encoding dst =
